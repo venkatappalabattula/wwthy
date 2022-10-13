@@ -22,11 +22,14 @@
     justify-items: center;
 }
 .form{
+    display: flex;
+    flex-direction: column;
     background-color: #262626;
     box-shadow: 0px 0px 16px 1px rgba(255, 255, 255, 0.41);
     border-radius: 10px;
     width: 33%;
     height: 760px;
+    
 }
 .svg{
     justify-items: center;
@@ -35,16 +38,48 @@
     margin-top: 60px;
     margin-bottom: 60px;
 }
+.superform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center ;
+    margin-right: auto;
+}
 .formfields{
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center ;
+    padding: 30px;
+    font-family: 'Montserrat', sans-serif;;
+    font-weight: 400;
+}
+.entryfields{
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
 
 }
-.label{
-    color: white;
+
+label{
+    color: #C8C8C8;
 }
 .gprefs{
     flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.genreprefs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: space-around;
+}
+.center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
 }
 #genres{
     width: 29%;
@@ -55,4 +90,61 @@ flex-direction: column;
     background: #262EFF;
     border-radius: 10px;
     color: white;
+
 }
+
+input{
+    width: 93.6%;
+    height: 40px;
+    border: 1px solid #C8C8C8;
+    background-color: #262626;
+    border-radius: 10px;
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+}
+input::placeholder{
+    font-family: 'Montserrat', sans-serif;;
+    font-weight: 400;
+    color: #C8C8C8;
+    font-size: 20px;
+    margin-left: 10px;
+}
+select[id = age-ranges], select[id = Languages]{
+    width: 93.6%;
+    height: 40px;
+    background-color: #262626;
+    border: 1px solid #C8C8C8;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;;
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #C8C8C8;
+}
+select[id = gp1], select[id = gp2], select[id = gp3]{
+    width: 32%;
+    height: 40px;
+    background-color: #262626;
+    border: 1px solid #C8C8C8;
+    font-family: 'Montserrat', sans-serif;;
+    margin-top: 13px;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 10px;
+    color: #C8C8C8;
+}
+select::placeholder{
+    font-family: 'Montserrat', sans-serif;;
+    font-weight: 400;
+    color: #C8C8C8;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;;
+    font-weight: 400;
+    font-size: 20px;
+    color: #C8C8C8;
+    margin-left: 10px;
+}
+

@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect, render, HttpResponse
 from django.utils.html import escape
 from .movie import reverse_genres, genres
+from base.models import forminput
 
 
 # Create your views here.
@@ -21,7 +22,7 @@ def form_submit(request):
         audiences = request.POST['audiences']
         ageranges = request.POST['age-ranges']
         gp = request.POST.getlist('gp')
-
+        
 
         print(gp)
         genrestring = [] 
@@ -30,7 +31,7 @@ def form_submit(request):
                 genrestring.append(str(genres[string][0]))
         genrestring = ','.join(genrestring)
         languages = request.POST['Languages']
-        x1 = requests.get("https://api.themoviedb.org/3/discover/movie?api_key= ~ &language={}&page=1&include_adult=false&with_genres={}&sort_by=popularity.desc".format(languages, genrestring))
+        x1 = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=34fe3fc711aaf02629366ba6335190d4&language={}&page=1&include_adult=false&with_genres={}&sort_by=popularity.desc".format(languages, genrestring))
         recommendations = []
         for o in x1.json()['results']:
             movie = {}
@@ -40,9 +41,11 @@ def form_submit(request):
             #print(o['original_language'])
             #print([reverse_genres[x] for x in o['genre_ids']])
             #print(o['popularity'])
+            recommendations.append(movie)     
 
-            recommendations.append(movie)
-
+        ins = forminput(email=email, audiences = audiences, ageranges = ageranges, gp = gp, recommendations = recommendations)
+        ins.save()
+        print("The data has been written to the db")  
     return render(request, 'base/display.html', {'recommendations':recommendations})
     
 
