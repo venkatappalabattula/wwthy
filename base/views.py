@@ -31,7 +31,7 @@ def form_submit(request):
                 genrestring.append(str(genres[string][0]))
         genrestring = ','.join(genrestring)
         languages = request.POST['Languages']
-        x1 = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=34fe3fc711aaf02629366ba6335190d4&language={}&page=1&include_adult=false&with_genres={}&sort_by=popularity.desc".format(languages, genrestring))
+        x1 = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=~&language={}&page=1&include_adult=false&with_genres={}&sort_by=popularity.desc".format(languages, genrestring))
         recommendations = []
         for o in x1.json()['results']:
             movie = {}
