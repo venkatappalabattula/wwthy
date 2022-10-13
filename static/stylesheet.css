@@ -1,0 +1,58 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+.body{
+    background-color: #262626;
+}
+.heading {
+    font-family:'Montserrat', sans-serif; 
+    font-size: 48px; 
+    align-items: center; 
+    color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.formstructure{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.form{
+    background-color: #262626;
+    box-shadow: 0px 0px 16px 1px rgba(255, 255, 255, 0.41);
+    border-radius: 10px;
+    width: 33%;
+    height: 760px;
+}
+.svg{
+    justify-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.formfields{
+display: flex;
+flex-direction: column;
+
+}
+.label{
+    color: white;
+}
+.gprefs{
+    flex-direction: row;
+}
+#genres{
+    width: 29%;
+}
+.submitbutton{
+    width: 29.06%;
+    height: 40px;
+    background: #262EFF;
+    border-radius: 10px;
+    color: white;
+}

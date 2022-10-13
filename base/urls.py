@@ -5,6 +5,5 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('room/<str:pk>/', views.room, name='room'),
-
+    path('submitform/', views.form_submit,  name='Submitform'),
 ]
