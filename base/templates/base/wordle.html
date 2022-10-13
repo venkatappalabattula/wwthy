@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="{% static 'stylesheet.css' %}">
+    <!-- to clear cache , I used this to update css files while on server -->
+    <link rel="stylesheet" href="/static/stylesheet.css?{% now "U" %}"/>    
+    <title>Wordle</title>
+</head>
+<body>
+
+    
+<!-- WORDLE GAME  -->
+
+<div class="heading">
+    Wordle
+</div> 
+
+  <div class="boundbox">
+    <div id="game-container">
+      <div class="row">
+        <form>
+          <div class="cell">
+            <input type="text" name="cell1" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell2" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell3" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell4" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell5" maxlength="1"/>
+          </div>
+          <input type="submit" value="Add" hidden/>
+        </form>
+      </div>
+      <div class="row">
+        <form>
+          <div class="cell">
+            <input type="text" name="cell1" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell2" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell3" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell4" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell5" maxlength="1"/>
+          </div>
+          <input type="submit" value="Add" hidden/>
+        </form>
+      </div>
+      <div class="row">
+        <form>
+          <div class="cell">
+            <input type="text" name="cell1" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell2" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell3" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell4" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell5" maxlength="1"/>
+          </div>
+          <input type="submit" value="Add" hidden/>
+        </form>
+      </div>
+      <div class="row">
+        <form>
+          <div class="cell">
+            <input type="text" name="cell1" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell2" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell3" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell4" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell5" maxlength="1"/>
+          </div>
+          <input type="submit" value="Add" hidden/>
+        </form>
+      </div>
+      <div class="row">
+        <form>
+          <div class="cell">
+            <input type="text" name="cell1" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell2" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell3" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell4" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell5" maxlength="1"/>
+          </div>
+          <input type="submit" value="Add" hidden/>
+        </form>
+      </div>
+      <div class="row">
+        <form>
+          <div class="cell">
+            <input type="text" name="cell1" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell2" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell3" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell4" maxlength="1"/>
+          </div>
+          <div class="cell">
+            <input type="text" name="cell5" maxlength="1"/>
+          </div>
+          <input type="submit" value="Add" hidden/>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="boundbox">
+    <p id="notify-text"></p>
+  </div>  
+
+<script>
+     // WORDLE GAME JS
+
+
+let rows = document.querySelectorAll('.row');
+let rowForms = document.querySelectorAll('form');
+let notifyText = document.querySelector('#notify-text');
+var currRowIdx = 0;
+let targetWord = "crust";
+let gameActive = true;
+
+
+//  TRIED A LOT TO PREVENT AUTO SCROLL BUT THE GAME CAN NOT START WITHOUT GAMEACTIVE BEING TRUE
+
+
+window.addEventListener("scroll", function(event){
+	var scroll = this.scrollY;
+	const aboutbox = document.querySelector("#scrolldle");
+	var x = aboutbox.getBoundingClientRect().top;
+	console.log(x)
+    console.log(gameActive)  
+		if (x<= 700) {
+			gameActive = gameActive ;
+            console.log(gameActive) 
+		}
+		else{
+			var gameActive = !gameActive;
+            console.log(gameActive) 
+		}    
+});
+
+
+var currCells = [];
+var cellIdx = 0;
+
+
+
+
+
+updateRows();
+currCells[cellIdx].firstElementChild.focus();
+
+rowForms.forEach((form, idx) => {
+  form.addEventListener('submit', (event) => {
+    if (!gameActive)
+      return;
+    event.preventDefault();
+    let formCells = Array.from(event.target.children);
+    let formData = new FormData(event.target);
+    var word = "";
+    word += formData.get('cell1');
+    word += formData.get('cell2');
+    word += formData.get('cell3');
+    word += formData.get('cell4');
+    word += formData.get('cell5');
+    if (word.length < 5)
+      return;
+    if (compareWords(word, formCells)) {
+      gameActive = false;
+      notifyText.innerHTML = `You Win!`;
+      return;
+    }
+    currRowIdx++;
+    if (currRowIdx == 6) {
+      notifyText.innerHTML = `Game Over! Word was ${targetWord}`;
+      return;
+    }
+    updateRows();
+  });
+});
+
+function getCurrentCells() {
+  let rowForm = rows[currRowIdx].firstElementChild;
+  currCells = rowForm.querySelectorAll('.cell');
+}
+
+function updateRows() {
+  rows.forEach((row, idx) => {
+    let rowForm = row.firstElementChild;
+    let cells = rowForm.querySelectorAll('.cell');
+    if (idx != currRowIdx || !gameActive) {
+      row.classList.remove('active');
+      cells.forEach((cell) => {
+        cell.firstElementChild.setAttribute('disabled', 'true');
+      });
+    } else {
+      row.classList.add('active');
+      cells.forEach((cell) => {     cell.firstElementChild.removeAttribute('disabled');
+      });
+      // cells[0].firstElementChild.focus();
+    }
+  });
+  
+  getCurrentCells();
+  cellIdx = 0;
+  
+  currCells.forEach((cell) => {
+    cell.addEventListener('keyup', (event) => {
+      cellIdx++;
+      if (cellIdx < 5)
+        currCells[cellIdx].firstElementChild.focus();
+    })
+  });
+}
+
+function compareWords(word, formCells) {
+  var dict = {};
+  var win = true;
+  
+  for (var i = 0; i < targetWord.length; i++) {
+    if (dict.hasOwnProperty(targetWord[i]))
+      dict[targetWord[i]]++;
+    else
+      dict[targetWord[i]] = 1;
+  }
+  
+  for (var i = 0; i < targetWord.length; i++) {
+    if (targetWord[i] == word[i]) {
+      formCells[i].classList.add('correct');
+      dict[word[i]]--;
+      win = win && true;
+    } else if (dict.hasOwnProperty(word[i]) && dict[word[i]] > 0) {
+      formCells[i].classList.add('wrong-pos');
+      dict[word[i]]--;
+      win = win && false;
+    } else {
+      formCells[i].classList.add('incorrect');
+      win = win && false;
+    }
+  }
+  return win;
+}
+</script>  
+</body>
+</html>
+
+
+

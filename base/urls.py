@@ -10,5 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
     path('submitform/', views.form_submit,  name='Submitform'),
+    path('tictactoe/', views.tictac, name="tictactoegame"),
+    path('wordle/', views.wordle, name="wordlegame"),
 ]
 
