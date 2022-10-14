@@ -49,10 +49,10 @@ def form_submit(request):
     return render(request, 'base/display.html', {'recommendations':recommendations})
     
 
-def tictac(request):
-    return render(request, 'base/tictactoe.html')
+# def tictac(request):
+#     return render(request, 'base/tictactoe.html')
 
-def wordle(request):
-    return render(request, 'base/wordle.html')
+# def wordle(request):
+#     return render(request, 'base/wordle.html')
 
 
