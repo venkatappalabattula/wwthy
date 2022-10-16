@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="{% static 'stylesheet.css' %}">
+    <!-- to clear cache , I used this to update css files while on server -->
+    <link rel="stylesheet" href="/static/stylesheet.css?{% now "U" %}"/>    
+    <title>WatchWorthy</title>
+    
+</head>
+<body class="body">
+    <div class="heading">
+        WatchWorthy.
+    </div>
+    <div class="formstructure"  >
+        <div class="form">
+            <div class="svg">
+                <svg width="165" height="139" viewBox="0 0 165 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M113.99 45.8192C112.933 36.4736 107.626 28.4224 100.076 23.5862C100.42 10.7845 110.879 0.504089 123.749 0.5L113.99 45.8192ZM113.99 45.8192C116.972 47.1727 120.265 47.9469 123.749 47.9469C136.838 47.9469 147.448 37.3267 147.448 24.2245C147.448 11.1202 136.838 0.500059 123.749 0.5L113.99 45.8192ZM124.46 130.873L122.945 131.64L122.943 131.641C122.183 132.028 109.062 138.5 86.3856 138.5C74.7762 138.5 60.6616 136.807 44.4067 131.723L42.9719 131.273L42.9639 131.224V106.126C42.9639 89.2993 56.6398 75.6078 73.448 75.6078H93.9818C110.79 75.6078 124.466 89.2993 124.46 106.126V106.126V130.873ZM131.236 106.163C131.236 89.5793 120.363 75.4967 105.383 70.6641C110.525 65.4492 113.792 58.4037 114.125 50.6H134.018C150.824 50.6 164.5 64.2895 164.5 81.1144V105.866L162.986 106.634C162.986 106.634 162.985 106.634 162.985 106.634C162.262 106.997 150.934 112.578 131.236 113.39V106.163ZM36.1859 113.224C26.2101 112.599 14.7558 110.717 1.94303 106.713C1.94291 106.713 1.94279 106.713 1.94267 106.713L0.507269 106.259L0.5 106.215V81.1144C0.5 64.2895 14.1759 50.6 30.9841 50.6H51.5159C52.1167 50.6 52.7041 50.6375 53.3068 50.6813C53.6625 58.4493 56.9198 65.4685 62.0424 70.6642C47.059 75.5005 36.19 89.5792 36.1859 106.163V106.163V113.224ZM107.416 49.2322C107.416 62.3345 96.8063 72.9567 83.717 72.9567C70.6295 72.9567 60.0137 62.3363 60.0137 49.2343C60.0137 36.1322 70.6296 25.5098 83.717 25.5098C96.8043 25.5098 107.416 36.1301 107.416 49.2322ZM53.6663 44.4087C50.0524 46.6439 45.8094 47.951 41.2551 47.951C28.1638 47.951 17.556 37.3287 17.556 24.2306C17.556 11.1263 28.1638 0.506183 41.2551 0.506183C54.3383 0.506183 64.9502 11.1263 64.9502 24.2306C64.9502 24.5335 64.9308 24.823 64.9101 25.131C64.9056 25.1985 64.901 25.2669 64.8966 25.3365C59.0279 29.9724 54.9056 36.7068 53.6663 44.4087Z" stroke="#ffffff"/>
+                </svg>
+            </div>
+            <div class="superform">
+                <form action="/submitformsingle/" class="formfields" method="POST">
+                    {% csrf_token %}
+                    <div class="entryfields">
+                        <input id = "mail" name = "mail" type="email" placeholder="@ email" />
+                        <input id = "age" name = "age" min="1" type="number" placeholder="Age" />
+                    </div>
+                    
+                    <div class="gprefs">
+                        <label for="lang">  Genre preferences </label><br>
+                        <div class="genreprefs">
+                            <select id="gp1" name="gp">
+                                <option value="none"> Genre</option>
+                                <option value="Action"> Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Documentary">Documentary</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Family">Family</option>
+                                <option value="Fantasy">Fantasy</option> 
+                                <option value="History">History</option>  
+                                <option value="Horror">Horror</option>  
+                                <option value="Music">Music</option>  
+                                <option value="Mystery">Mystery</option>  
+                                <option value="Romance">Romance</option>  
+                                <option value="Science Fiction">Science Fiction</option>  
+                                <option value="Thriller">Thriller</option>  
+                                <option value="War">War</option>   
+                                <option value="Western">Western</option>   
+                            </select>
+                            <select id="gp2" name="gp">
+                                <option value="none"> Genre</option>
+                                <option value="Action"> Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Documentary">Documentary</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Family">Family</option>
+                                <option value="Fantasy">Fantasy</option> 
+                                <option value="History">History</option>  
+                                <option value="Horror">Horror</option>  
+                                <option value="Music">Music</option>  
+                                <option value="Mystery">Mystery</option>  
+                                <option value="Romance">Romance</option>  
+                                <option value="Science Fiction">Science Fiction</option>  
+                                <option value="Thriller">Thriller</option>  
+                                <option value="War">War</option>   
+                                <option value="Western">Western</option>   
+                            </select>
+                            <select id="gp3" name="gp">
+                                <option value="none" > Genre</option>
+                                <option value="Action"> Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Documentary">Documentary</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Family">Family</option>
+                                <option value="Fantasy">Fantasy</option> 
+                                <option value="History">History</option>  
+                                <option value="Horror">Horror</option>  
+                                <option value="Music">Music</option>  
+                                <option value="Mystery">Mystery</option>  
+                                <option value="Romance">Romance</option>  
+                                <option value="Science Fiction">Science Fiction</option>  
+                                <option value="Thriller">Thriller</option>  
+                                <option value="War">War</option>   
+                                <option value="Western">Western</option>   
+                            </select>
+                        </div>
+                    </div>
+                    <select id="Languages" placeholder="Language" name="Languages">
+                        <option value="none"> Select a Language</option>
+                        <option value="en"> English </option>
+                        <option value="fr"> French </option>
+                        <option value="de"> German</option>
+                    </select>
+                    <p style="font-size: 18px; color: red; margin-top: 30px; margin-bottom: 0%;">For each question, please check how you have been feeling or acting in the past two weeks.</p>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I felt miserable or unhappy</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I didn’t enjoy anything at all.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio1" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio1" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio1" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I felt so tired I just sat around and
+                        did nothing.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio2" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio2" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio2" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I was very restless.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio3" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio3" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio3" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I felt I was no good anymore.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio4" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio4" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio4" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I cried a lot.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio5" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio5" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio5" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I found it hard to think properly or
+                        concentrate.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio6" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio6" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio6" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I hated myself.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio7" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio7" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio7" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I was a bad person</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio8" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio8" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio8" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I felt lonely.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio9" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio9" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio9" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I thought nobody really loved me.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio10" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio10" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio10" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I thought I could never be as good
+                        as other kids.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio11" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio11" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio11" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    <p style="font-size: 18px; color: #c8c8c8c8">I did everything wrong.</p>
+                    <div class="rowflex" style="padding: 0;">
+                        <label class="container">Not True
+                        <input type="radio" checked="checked" name="radio12" id = "option0" value="0">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Sometimes
+                            <input type="radio" name="radio12" id = "option1" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                          <label class="container">True
+                            <input type="radio" name="radio12" id = "option2" value="2">
+                            <span class="checkmark"></span>
+                          </label>
+
+                    </div>
+                    
+
+                    <div class="center">
+                        <input class="submitbutton" type="submit" value="Submit">
+                        </input>
+                    </div>           
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <a href="tictactoe/">
+        <div class="heading">
+            Tic Tac toe game ------>
+        <!-- </div> -->
+    <!-- </a>
+    <a href="wordle/">
+        <div class="heading">
+            Wordle game
+        </div>
+    </a>  -->
+    <footer class="footer" style="position: static;">
+    </footer>
+
+</body>
+</html>

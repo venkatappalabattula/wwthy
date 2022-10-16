@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type='text/css' href="{% static 'stylesheet.css' %}">
     <!-- to clear cache , I used this to update css files while on server -->
     <link rel="stylesheet" href="/static/stylesheet.css?{% now "U" %}"/>    
@@ -22,15 +25,15 @@
         <div class="form">
             <div class="svg">
                 <svg width="165" height="139" viewBox="0 0 165 139" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M99.5704 23.8576C107.2 28.646 112.549 36.749 113.523 46.1547C116.635 47.61 120.088 48.4469 123.749 48.4469C137.115 48.4469 147.948 37.6023 147.948 24.2245C147.948 10.8445 137.115 0 123.749 0C110.511 0.00412261 99.7722 10.6549 99.5704 23.8576ZM83.717 73.4567C97.0829 73.4567 107.916 62.6101 107.916 49.2322C107.916 35.8543 97.0809 25.0098 83.717 25.0098C70.3531 25.0098 59.5137 35.8564 59.5137 49.2343C59.5137 62.6121 70.3531 73.4567 83.717 73.4567ZM93.9818 75.1078H73.448C56.3632 75.1078 42.4639 89.0237 42.4639 106.126V131.264L42.5277 131.658L44.2574 132.2C60.5618 137.299 74.7267 139 86.3856 139C109.158 139 122.357 132.501 123.17 132.086L124.787 131.268H124.96V106.126C124.966 89.0237 111.067 75.1078 93.9818 75.1078ZM134.018 50.1H113.643C113.422 58.2607 109.942 65.6093 104.438 70.8945C119.624 75.4149 130.736 89.5122 130.736 106.163V113.91C150.854 113.172 162.447 107.464 163.211 107.081L164.827 106.26H165V81.1144C165 64.0138 151.101 50.1 134.018 50.1ZM41.2552 48.451C45.9891 48.451 50.3937 47.0678 54.1249 44.7118C55.3109 36.9674 59.4581 30.2002 65.3823 25.5911C65.407 25.1376 65.4502 24.6883 65.4502 24.2306C65.4502 10.8507 54.6149 0.00618347 41.2552 0.00618347C27.8871 0.00618347 17.056 10.8507 17.056 24.2306C17.056 37.6044 27.8871 48.451 41.2552 48.451ZM62.9875 70.8945C57.5101 65.6361 54.0425 58.3267 53.7892 50.2155C53.0335 50.1598 52.286 50.1 51.5159 50.1H30.9841C13.8993 50.1 0 64.0138 0 81.1144V106.256L0.0638338 106.644L1.79352 107.19C14.8733 111.278 26.5466 113.162 36.6859 113.755V106.163C36.69 89.5122 47.7971 75.419 62.9875 70.8945Z" fill="white"/>
-                    </svg>
+                    <path d="M113.99 45.8192C112.933 36.4736 107.626 28.4224 100.076 23.5862C100.42 10.7845 110.879 0.504089 123.749 0.5L113.99 45.8192ZM113.99 45.8192C116.972 47.1727 120.265 47.9469 123.749 47.9469C136.838 47.9469 147.448 37.3267 147.448 24.2245C147.448 11.1202 136.838 0.500059 123.749 0.5L113.99 45.8192ZM124.46 130.873L122.945 131.64L122.943 131.641C122.183 132.028 109.062 138.5 86.3856 138.5C74.7762 138.5 60.6616 136.807 44.4067 131.723L42.9719 131.273L42.9639 131.224V106.126C42.9639 89.2993 56.6398 75.6078 73.448 75.6078H93.9818C110.79 75.6078 124.466 89.2993 124.46 106.126V106.126V130.873ZM131.236 106.163C131.236 89.5793 120.363 75.4967 105.383 70.6641C110.525 65.4492 113.792 58.4037 114.125 50.6H134.018C150.824 50.6 164.5 64.2895 164.5 81.1144V105.866L162.986 106.634C162.986 106.634 162.985 106.634 162.985 106.634C162.262 106.997 150.934 112.578 131.236 113.39V106.163ZM36.1859 113.224C26.2101 112.599 14.7558 110.717 1.94303 106.713C1.94291 106.713 1.94279 106.713 1.94267 106.713L0.507269 106.259L0.5 106.215V81.1144C0.5 64.2895 14.1759 50.6 30.9841 50.6H51.5159C52.1167 50.6 52.7041 50.6375 53.3068 50.6813C53.6625 58.4493 56.9198 65.4685 62.0424 70.6642C47.059 75.5005 36.19 89.5792 36.1859 106.163V106.163V113.224ZM107.416 49.2322C107.416 62.3345 96.8063 72.9567 83.717 72.9567C70.6295 72.9567 60.0137 62.3363 60.0137 49.2343C60.0137 36.1322 70.6296 25.5098 83.717 25.5098C96.8043 25.5098 107.416 36.1301 107.416 49.2322ZM53.6663 44.4087C50.0524 46.6439 45.8094 47.951 41.2551 47.951C28.1638 47.951 17.556 37.3287 17.556 24.2306C17.556 11.1263 28.1638 0.506183 41.2551 0.506183C54.3383 0.506183 64.9502 11.1263 64.9502 24.2306C64.9502 24.5335 64.9308 24.823 64.9101 25.131C64.9056 25.1985 64.901 25.2669 64.8966 25.3365C59.0279 29.9724 54.9056 36.7068 53.6663 44.4087Z" stroke="#ffffff"/>
+                </svg>
             </div>
             <div class="superform">
                 <form action="/submitform/" class="formfields" method="POST">
                     {% csrf_token %}
                     <div class="entryfields">
                         <input id = "mail" name = "mail" type="email" placeholder="@ email" />
-                        <input id = "audiences" name = "audiences" type="number" placeholder="no. of audiences" />
+                        <input id = "audiences" name = "audiences" min="2" type="number" placeholder="number of audiences" />
                         <select id="age-ranges" name="age-ranges" placeholder="select age ranges">
                             <option value="select"> Select age range</option>
                             <option value="U"> 1 - 12 </option>
@@ -43,7 +46,7 @@
                         <label for="lang">  Genre preferences </label><br>
                         <div class="genreprefs">
                             <select id="gp1" name="gp">
-                                <option value="none"> Select genre</option>
+                                <option value="none"> Genre</option>
                                 <option value="Action"> Action</option>
                                 <option value="Adventure">Adventure</option>
                                 <option value="Animation">Animation</option>
@@ -64,7 +67,7 @@
                                 <option value="Western">Western</option>   
                             </select>
                             <select id="gp2" name="gp">
-                                <option value="none"> Select genre</option>
+                                <option value="none"> Genre</option>
                                 <option value="Action"> Action</option>
                                 <option value="Adventure">Adventure</option>
                                 <option value="Animation">Animation</option>
@@ -85,7 +88,7 @@
                                 <option value="Western">Western</option>   
                             </select>
                             <select id="gp3" name="gp">
-                                <option value="none" > Select genre</option>
+                                <option value="none" > Genre</option>
                                 <option value="Action"> Action</option>
                                 <option value="Adventure">Adventure</option>
                                 <option value="Animation">Animation</option>
@@ -131,6 +134,8 @@
             Wordle game
         </div>
     </a>  -->
+    <div class="footer">
+    </div>
 
 
 </body>
